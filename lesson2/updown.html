@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>UP&DOWN GAME</title>
+</head>
+<body>
+	<input type="text" id="userInput">
+	<input type="button" id="checkBtn" value="Check!">
+</body>
+</html>
+<script>
+	let randomNumber = Math.floor(Math.random() * 100) + 1;
+	let userInput = document.querySelector("#userInput");
+	let checkBtn = document.querySelector("#checkBtn");
+	
+	checkBtn.addEventListener("click", function(){
+		// 사용자의 입력값과 랜덤한 숫자가 일치하는지 체크
+		let userNumber = parseInt(userInput.value);
+
+		// 비교 if(조건)
+		// a == b
+		// a === b : 타입까지 같다
+		// a != b
+		// a !== b : a와 b는 일치하지 않는다.(타입은 동일)
+		if (randomNumber > userNumber){
+			alert("UP!");
+		} else if (randomNumber < userNumber) {
+			alert("DOWN!");
+		} else if (randomNumber === userNumber) {
+			alert("SAME!");
+		} else {
+			alert("Error");
+		}
+	})
+	
+	// console.log(checkBtn);
+
+	// 변수 (어떤 값을 저장하는 공간)
+	// = 오른쪽에 있는 값을 왼쪽에 넣겠다.
+	// == : 같다
+	// var 변수명 = 넣을값; (예전방식)
+	// let 변수명 = 넣을값; (요즘방식)
+	// const 변수명 = 넣을값; (요즘방식 - 수정 불가능)
+	// 변수명을 만들때는 명시적으로 만든다.
+	// 1.camelCase
+	// 2.pascal_case
+
+	// let randomNumber = 35;
+	// console.log(randomNumber);
+
+	// const random_number = 30;
+	// random_number = 32;		*수정 불가능
+	// console.log(random_number);
+
+	// 오브젝트
+	// let user = {
+	// 	"name" : "짱구",	//property
+	// 	"age" : 5,
+	// 	"sayHi" : funciton() {	//method
+	// 		alert("Hi");
+	// 	}
+	// }
+	// user.sayHi();
+
+	//오브젝트 값 접근
+	//변수명.키값
+	// console.log(user.age);
+
+
+	// 함수 (function)
+	// -> 재사용 하기위해 만듦
+	// 어떤 특정한 목적을 수행하는 소스를 함수화
+	// function add(x,y){
+	// 	// 실행될 코드
+	// 	console.log(x+y);
+	// }
+
+	// 함수호출
+	// 매개변수, argument
+	// 함수명 (넘겨줄 값1, 넘겨줄 값2, ...)
+	// let result = add("안녕",5);
+	// let result2 = add(30,5);
+	// console.log(result);
+	// console.log(result2);
+
+
+</script>

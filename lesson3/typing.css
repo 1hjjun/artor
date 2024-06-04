@@ -1,0 +1,50 @@
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+}
+
+.game-title {
+	background-color: darkgreen;
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+
+.word-display {
+	font-size: 70px;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.word-input {
+	font-size: 20px;
+	padding: 10px;
+	border: 1px solid #dbdbdb;
+}
+
+.game-info {
+	display: flex;
+	width: 200px;
+	justify-content: space-around;
+}
+
+.score, .time {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.start, .reset {
+	margin-top: 10px;
+	width: 200px;
+	padding: 10px;
+	background-color: rgb(77, 75, 75);
+	color: white;
+	border: 1px solid #dbdbdb;
+	cursor: pointer;
+}
+
+.reset {
+	display: none;
+}

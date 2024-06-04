@@ -1,0 +1,91 @@
+body {
+	margin: 0;
+}
+
+#header{
+	background-color: rgb(3, 58, 30);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+}
+
+#logo-image {
+	width: 80px;
+}
+
+/* #menus a, #icons a {
+	color: white;
+	text-decoration: none;
+}
+
+#menus a:hover {
+	background-color: orange;
+	border-radius: 3px;
+} */
+
+#menus {
+	list-style: none;
+	display: none;
+	/* justify-content: space-around;
+	width : 200px; */
+	padding-left: 0;
+}
+#menus a {
+	color: white;
+	text-decoration: none;
+}
+
+#menus li{
+	padding: 10px;
+}
+#menus li:hover {
+	background-color: orange;
+}
+
+#icons {
+	list-style: none;
+	display: none;
+	padding-left: 0;
+}
+
+#icons li{
+	padding: 10px;
+}
+
+#icons a{
+	text-decoration: none;
+	color: white;
+}
+.toggleBtn{
+	color: white;
+	display: none;
+}
+/* 특정 사이즈보다 작으면 css가 덮어씌움 */
+@media screen and (max-width: 500px){
+	#header{
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	#menus {
+		flex-direction: column;
+		width: 100%;
+		text-align: center;
+	}
+
+	#icons {
+		width: 100%;
+		justify-content: center;
+	}
+	.toggleBtn{
+		display: block;
+		position: absolute;
+		right : 10px;
+		font-size: 15px;
+		top : 45px;
+	}
+	#menus.active, #icons.active {
+		display: flex;
+	}
+}

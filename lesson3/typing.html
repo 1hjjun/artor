@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Typing Game</title>
+	<link rel="stylesheet" href="typing.css">
+</head>
+<body>
+	<div class="game-title">
+		<h1>Typing Game</h1>
+	</div>
+	<div class="word-display"></div>
+	<input type="text" class="word-input">
+	<input type="button" value="Game Start" class="start" onclick="gameStart()">
+	<input type="button" value="Game Reset" class="reset" onclick="gameReset()">
+	<div class="game-info">
+		<p>점수 : <span class="score">0</span></p>
+		<p>남은시간 : <span class="time">0</span></p>
+	</div>
+</body>
+</html>
+
+<script src="typing.js"></script>

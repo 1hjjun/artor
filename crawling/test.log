@@ -1,0 +1,34 @@
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3: can't open file '/Users/hanhyeongjun/Desktop/Artor/crawling/nba_aws.py': [Errno 1] Operation not permitted
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3: can't open file '/Users/hanhyeongjun/Desktop/Artor/crawling/nba_aws.py': [Errno 1] Operation not permitted
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3: can't open file '/Users/hanhyeongjun/Desktop/Artor/crawling/nba_aws.py': [Errno 1] Operation not permitted
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3: can't open file '/Users/hanhyeongjun/Desktop/Artor/crawling/nba_aws.py': [Errno 1] Operation not permitted
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3: can't open file '/Users/hanhyeongjun/Desktop/Artor/crawling/nba_aws.py': [Errno 1] Operation not permitted
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3: can't open file '/Users/hanhyeongjun/Desktop/Artor/crawling/nba_aws.py': [Errno 1] Operation not permitted
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3: can't open file '/Users/hanhyeongjun/Desktop/Artor/crawling/nba_aws.py': [Errno 1] Operation not permitted
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymysql/connections.py", line 779, in _read_bytes
+    data = self._rfile.read(num_bytes)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/hanhyeongjun/Desktop/Artor/crawling/nba_aws.py", line 28, in <module>
+    cur.execute(f"INSERT INTO teams VALUES({i+1},\"{lankings[i].text}\",\"{winningOdds[i].text}\")")
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymysql/connections.py", line 739, in _read_packet
+    packet_header = self._read_bytes(4)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pymysql/connections.py", line 785, in _read_bytes
+    raise err.OperationalError(
+pymysql.err.OperationalError: (2013, 'Lost connection to MySQL server during query ([Errno 54] Connection reset by peer)')

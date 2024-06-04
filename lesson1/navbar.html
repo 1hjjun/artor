@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Navbar</title>
+	<link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+	<div id="header">
+		<div id="logo">
+			<img id="logo-image" src="https://static.vecteezy.com/system/resources/thumbnails/018/930/572/small/youtube-logo-youtube-icon-transparent-free-png.png">
+		</div>
+		<ul id="menus">
+			<li><a href="#">메뉴1</a></li>
+			<li><a href="#">메뉴2</a></li>
+			<li><a href="#">메뉴3</a></li>
+		</ul>
+		<ul id="icons">
+			<li><a href="https://instagram.com">I</a></li>
+			<li><a href="https://facebook.com">F</a></li>
+			<li><a href="https://twitter.com">T</a></li>
+		</ul>
+		<a href="#" class="toggleBtn">
+			menu
+		</a>
+	</div>
+</body>
+</html>
+
+<script>
+	//js문법
+	let toggleBtn = document.querySelector(".toggleBtn");
+	let menus = document.querySelector("#menus");
+	let icons = document.querySelector("#icons");
+
+	toggleBtn.addEventListener("click", function(){
+		menus.classList.toggle("active");
+		icons.classList.toggle("active");
+	})
+</script>
