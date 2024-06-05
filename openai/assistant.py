@@ -6,8 +6,8 @@ import time
 
 
 def display(obj):
-    print(json.dumps(obj, indent=4))
-    
+  print(json.dumps(obj, indent=4))
+
 def show_json(obj):
 	display(json.loads(obj.model_dump_json()))
 
@@ -28,7 +28,7 @@ assistant = client.beta.assistants.update(
     tools=[
       {"type": "code_interpreter"},
       {"type": "file_search"},
-		],
+	],
     instructions="You are a chatbot that provides information about Jun's resume.",
 )
 
