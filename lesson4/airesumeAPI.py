@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
 from openai import OpenAI
 from dotenv import load_dotenv
+from pymongo import MongoClient
 from flask_cors import CORS
 import os
 import time
+from datetime import datetime
 
 load_dotenv()
 
@@ -12,15 +14,19 @@ CORS(app)
 
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
+mongo_password = os.environ.get("MONGO_PASSWORD")
+mongo_connection_string = f'mongodb+srv://aut7410:{mongo_password}@resumecluster.j7ejmtd.mongodb.net/?retryWrites=true&w=majority&appName=resumeCluster'
 
-@app.route('/')
-def index():
-	return 'Home'
+mongoclient = MongoClient(mongo_connection_string)
+db = mongoclient.log
 
+def get_ip():
+	if request.headers.get('X-Forwarded-For'):
+		ip = request.headers.get('X-Forwarded-For').split(',')[0]
+	else:
+		ip = request.remote_addr
+	return ip
 
-@app.route('/hello')
-def hello():
-	return 'Hello'
 
 @app.route('/sendMessage', methods=['POST'])
 def sendMessage():
@@ -54,6 +60,17 @@ def sendMessage():
 
 		thread_messages = client.beta.threads.messages.list(thread_id)
 		ai_response = thread_messages.data[0].content[0].text.value
+
+		ip = get_ip()
+		timestamp = datetime.now()
+
+		log = {
+			"ip_address": ip,
+			"user_message": user_input,
+			"response": ai_response,
+			"timestamp": timestamp
+		}
+		db.users.insert_one(log)
 
 		return jsonify({"response" : ai_response})
 	
