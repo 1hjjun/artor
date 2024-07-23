@@ -27,15 +27,27 @@ def get_ip():
 		ip = request.remote_addr
 	return ip
 
+@app.route('/createNewThread', methods=['POST'])
+def createNewThread():
+	try: 
+		createdThread = client.beta.threads.create()
+		createdThread_id = createdThread.id
+
+		return jsonify({"thread_id" : createdThread_id})
+	
+	except Exception as e:
+		return jsonify({"error" : str(e)})
+
 
 @app.route('/sendMessage', methods=['POST'])
 def sendMessage():
 	data = request.get_json()
 	user_input = data.get('question')
+	user_thread_id = data.get('thread_id')
 
 	try:
 		assistant_id=os.environ.get("ASSISTANT_ID")
-		thread_id=os.environ.get("THREAD_ID")
+		thread_id=user_thread_id
 		message = client.beta.threads.messages.create(
 			thread_id,
 			role="user",
